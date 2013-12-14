@@ -1,0 +1,41 @@
+$def with(n,m,f,hsize,lsize)
+<html>
+	<head>
+		<script type="text/javascript" src="./static/index.js">
+		</script>
+	</head>
+<body align="center" onload="get_json()">
+	<form method="POST" enctype="multipart/form-data">
+		<input type="file" name="myfile" />
+		</br>
+		<input type="submit" value="start">
+		</br>
+		r=<input type="text" name="hsize" value="$hsize">
+		c=<input type="text" name="lsize" value="$lsize">
+		-h<input type="checkbox" name="h">
+		-v<input type="checkbox" name="v">
+		</br>
+		<input type="button" value="stop" onclick="stop()">
+		</br>
+		<input type="button" value="last" onclick="draw_last()">
+		</br>
+		<input type="button" value="next" onclick="draw_next()">
+		</br>
+		<input type="button" value="auto" onclick="go(2)">
+		</br>
+		$if f:
+			n=<b>$n</b>
+			m=<b>$m</b>
+			<table align="center" id="table">
+			$for i in range(0,n):
+				<tr>
+				$for j in range(0,m):
+					<td>$f[i][j]</td>
+				</tr>
+			</table>
+			sum=<b><span id="now"></b>
+			</br>
+			max=<b><span id="max"></b>
+	</form>
+</body>
+
